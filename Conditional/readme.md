@@ -73,5 +73,6 @@ Question: Write a program to print 1 to 10
         else{
           cout<<"Odd number";
         }
+    }
 ```
 ### Output: Even number
