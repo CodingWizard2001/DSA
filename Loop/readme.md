@@ -13,13 +13,44 @@ This repository contains a C++ problem related to loop statements and its corres
 Loops are 3 types => (1) For Loop Statement 
                      (2) While Loop Statement
                      (3) Do While Loop Statement  
-                     
+
+## For Loop
+
+```
+    for (initialize expression; test expression; update expression){
+        //
+        // body of for loop
+        //
+    }
+    
+```
+
+## While Loop
+
+```
+    initialization_expression;
+    while (test_expression){
+        // body of the while loop
+        update_expression;
+    }
+    
+```
+## Do While Loop
+
+```
+    initialization_expression;
+    do{
+        // body of do-while loop
+        update_expression;
+
+    }while (test_expression);
+
+```
+
 ### Example
 
-Question: Write a program to print 1 to 10
-
 ### Code (C++)
-# Input: Write a program in C++ to generate 1 to 10
+### Input: Write a program in C++ to generate 1 to 10
 ```cpp
     #include<bits/stdc++.h>
     using namespace std;
@@ -29,4 +60,4 @@ Question: Write a program to print 1 to 10
         }
     }
 ```
-# Output: 1 2 3 4 5 67 8 9 10
+### Output: 1 2 3 4 5 67 8 9 10
