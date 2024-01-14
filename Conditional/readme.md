@@ -29,7 +29,7 @@ Conditional Statements are 3 types =>
     
 ```
 
-## Switch
+## Ternary
 
 ```
     (condition) ? (variable = Expression2) : (variable = Expression3);
