@@ -1,55 +1,67 @@
-# Pointer Statement Problem and Solution in C++
+# Vector Statement Problem and Solution in C++
 
 ## Definition
 
-A pointer is a variable that stores the memory address of an object. Pointers are used extensively in both C and C++ for three main purposes:
-
-- To allocate new objects on the heap,
-- To pass functions to other functions
-- To iterate over elements in arrays or other data structures.
+A vector is a dynamic list of items that can shrink and grow in size. It can only store values of the same data type.
 
 ## Description
 
-This repository contains a C++ problem related to pointer statements and its corresponding solution. The purpose is to provide a clear illustration of how to use pointer statements to solve a specific programming challenge.
+This repository contains a C++ problem related to Vector statements and its corresponding solution. The purpose is to provide a clear illustration of how to use pointer statements to solve a specific programming challenge.
 
-## Syntax of pointer
+## Syntax of Vector
 
 ```cpp
 
-    int a;
-    int *ptr = &a; // Store address of a
+    vector<int> v = {3,6,7,8,11};
     
 ```
-## Syntax of dereference operator
+## push_back operator in Vector
 
 ```cpp
 
-    int a;
-    int *ptr = &a; 
-    cout<<*ptr; // Print Value of a
+    vector<int> v;
+    v.push_back(2);
+    v.push_back(9);
+    v.push_back(7);
+    v.push_back(5);
+    
+```
+## pop_back operation of Vector
+
+```cpp
+
+    vector<int> v;
+    v.push_back(2);
+    v.push_back(9);
+    v.push_back(7);
+    v.push_back(5);
+    v.pop_back(); // Remove last element
     
 ```
 ### Code (C++)
 
-### Input: Write a program to calculate sum of 2 numbers by using pointers.
+### Input: Write a program to sort a vector
 ```cpp
 
     #include<iostream>
+    #include<vector>
+    #include<algorithm>
     using namespace std;
     int main(){
-        int num1,num2;
-        cout<<"Enter first number : ";
-        cin>>num1;
-        cout<<"Enter second number : ";
-        cin>>num2;
-        int *n1 = &num1;
-        int *n2 = &num2;
-        cout<<"Sum will be : "<<(*n1 + *n2);
+        vector<int> v = {3,7,2,9,11};
+        cout<<"Before sort : ";
+        for(int i = 0;i < v.size();i++){
+            cout<<v[i]<<" ";
+        }
+        sort(v.begin(),v.end());
+        cout<<"After sort : ";
+        for(int i = 0;i < v.size();i++){
+            cout<<v[i]<<" ";
+        }
     }
 
 ```
-### Output: Enter first number : 5
-###         Enter first number : 6
-###         Sum will be : 11
+### Output: Before Sort : 3 7 2 9 11
+### After Sort : 2 3 7 9 11
 
 
