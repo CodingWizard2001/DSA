@@ -1,4 +1,5 @@
-// Insert in linked list
+// Implement all insert and delete operations from linked-list
+
 
 
 
@@ -63,6 +64,51 @@ class linkedList{
             }
         }
 
+        void deleteFromHead(){
+            if(size <= 0){
+                cout<<"List is already empty"<<endl;
+                return;
+            }
+            head = head -> next;
+            size--;
+        }
+
+        void deleteFromTail(){
+            if(size <= 0){
+                cout<<"List is already empty"<<endl;
+                return;
+            }
+
+            Node* temp = head;
+            while(temp -> next != tail){
+                temp = temp->next;
+            }
+
+            tail = temp;
+            tail->next = NULL;
+            size--;
+        }
+
+        void deleteFromAnyIndex(int idx){
+            if(idx < 0 || idx >= size){
+                cout<<"Out of bounds"<<endl;
+                return;
+            }
+
+            else if(idx == 0) deleteFromHead();
+            else if(idx == (size - 1)) deleteFromTail();
+
+            else{
+                Node* temp = head;
+                for(int i = 1;i <= (idx - 1);i++){
+                    temp = temp -> next;
+                }
+
+                temp -> next = temp -> next -> next;
+                size--;
+            }
+        }
+
         void display(){
             Node* temp = head;
             while(temp != NULL){
@@ -76,20 +122,37 @@ class linkedList{
 int main(){
     linkedList LL;
 
+    cout<<"Linked list : ";
     LL.insertAtHead(30);
     LL.insertAtHead(70);
-    LL.insertAtHead(20);
-    LL.insertAtHead(80);
+    LL.insertAtHead(45);
     LL.display();
 
-    LL.insertAtAnyIndex(2,50);
-    LL.insertAtAnyIndex(0,8);
-    LL.insertAtAnyIndex(4,10);
-    LL.display();
 
+    cout<<"Linked list : ";
     LL.insertAtEnd(32);
     LL.insertAtEnd(42);
-    LL.insertAtEnd(62);
-    LL.insertAtEnd(27);
+    LL.insertAtEnd(72);
+    LL.display();
+
+    cout<<"Linked list : ";
+    LL.insertAtAnyIndex(2,10);
+    LL.insertAtAnyIndex(3,10);
+    LL.insertAtAnyIndex(1,80);
+    LL.display();
+
+    cout<<"Linked list : ";
+    LL.deleteFromHead();
+    LL.deleteFromHead();
+    LL.display();
+
+    cout<<"Linked list : ";
+    LL.deleteFromTail();
+    LL.deleteFromTail();
+    LL.display();
+
+    cout<<"Linked list : ";
+    LL.deleteFromAnyIndex(2);
+    LL.deleteFromAnyIndex(3);
     LL.display();
 }

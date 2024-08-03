@@ -1,4 +1,4 @@
-// Insert in linked list
+// Delete an element from head from a linked list
 
 
 
@@ -23,16 +23,6 @@ class linkedList{
             size = 0;
         }
 
-        void insertAtEnd(int val){
-            Node* temp = new Node(val);
-            if(size == 0) head = tail = temp;
-            else{
-                tail -> next = temp;
-                tail = temp;
-            }
-            size++;
-        }
-
         void insertAtHead(int val){
             Node* temp = new Node(val);
             if(size == 0) head = tail = temp;
@@ -43,24 +33,13 @@ class linkedList{
             size++;
         }
 
-        void insertAtAnyIndex(int idx,int val){
-            if(idx < 0 || idx > size) cout<<"Invalid"<<endl;
-
-            else if(idx == 0) insertAtHead(val);
-            else if(idx == size) insertAtEnd(val);
-
-            else{
-                Node* t = new Node(val);
-                Node* temp = head;
-
-                for(int i = 1;i <= (idx - 1);i++){
-                    temp = temp -> next;
-                }
-
-                t -> next = temp -> next;
-                temp -> next = t;
-                size++;
+        void deleteFromHead(){
+            if(size <= 0){
+                cout<<"List is already empty"<<endl;
+                return;
             }
+            head = head -> next;
+            size--;
         }
 
         void display(){
@@ -82,14 +61,7 @@ int main(){
     LL.insertAtHead(80);
     LL.display();
 
-    LL.insertAtAnyIndex(2,50);
-    LL.insertAtAnyIndex(0,8);
-    LL.insertAtAnyIndex(4,10);
-    LL.display();
-
-    LL.insertAtEnd(32);
-    LL.insertAtEnd(42);
-    LL.insertAtEnd(62);
-    LL.insertAtEnd(27);
+    cout<<"After deleting head element : ";
+    LL.deleteFromHead();
     LL.display();
 }
